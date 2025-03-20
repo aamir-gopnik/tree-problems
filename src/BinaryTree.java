@@ -26,6 +26,10 @@ public class BinaryTree {
         root.right.right = new Node(15);
     }
 
+    /**
+     * Method to build tree from user input
+     * @param scanner  - Scanner will help in reading user input
+     */
     public void populate(Scanner scanner){
         System.out.println("Enter the root node : ");
         int value = scanner.nextInt();
