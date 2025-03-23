@@ -27,6 +27,13 @@ public class BinaryTree {
     }
 
     /**
+     * Height Of Binary Tree - Max no of edges between two nodes in hierarchical order
+     */
+    private void heightOfTree(Node node) {
+    }
+
+
+    /**
      * Method to build tree from user input
      * @param scanner  - Scanner will help in reading user input
      */
