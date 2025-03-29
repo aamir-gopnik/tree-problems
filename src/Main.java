@@ -26,12 +26,13 @@ public class Main {
         /**
          * Main function used for calling BST methods
          */
+        /*
         int[] nums = new int[]{2,5,1,6,3,7,4};
 
         BST bst = new BST();
         System.out.println();
         System.out.println("******************* BST *********************");
-        bst.insertElements(nums);
+        bst.insertElements(nums);*/
 
 
     }

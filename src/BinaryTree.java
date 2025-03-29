@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BinaryTree {
 
     Node root = null;
+    int height = 0;
 
     static class Node{
         Node left;
@@ -24,12 +25,21 @@ public class BinaryTree {
         root.left.right = new Node(5);
         root.right.left = new Node(11);
         root.right.right = new Node(15);
+        root.left.left.left = new Node(1);
     }
 
     /**
      * Height Of Binary Tree - Max no of edges between two nodes in hierarchical order
+     *
      */
-    private void heightOfTree(Node node) {
+    private int heightOfTree(Node node) {
+
+        if(node == null)
+        {
+            return -1;
+        }
+        height = Math.max(heightOfTree(node.left),heightOfTree(node.right)) + 1;
+        return height;
     }
 
 
@@ -85,10 +95,16 @@ public class BinaryTree {
     public void displayDFS(String type) {
         switch (type) {
             case "preorder" : displayPreOrder(root);
+                System.out.println();
+                System.out.println("Height of tree is -> " + heightOfTree(root));
                 break;
             case "postorder" : displayPostOrder(root);
+                System.out.println();
+                System.out.println("Height of tree is -> " + heightOfTree(root));
                 break;
             case "inorder" : displayInOrder(root);
+                System.out.println();
+                System.out.println("Height of tree is -> " + heightOfTree(root));
                 break;
         }
     }
