@@ -30,7 +30,7 @@ public class BinaryTree {
 
     /**
      * Height Of Binary Tree - Max no of edges between two nodes in hierarchical order
-     *
+     * Recursive function to find height of the tree
      */
     private int heightOfTree(Node node) {
 
@@ -54,6 +54,11 @@ public class BinaryTree {
         populate(scanner,root);
     }
 
+    /**
+     * This populate method will be recursively called based on the use input
+     * @param scanner - Scanner that will take user input
+     * @param node - node for which further nodes will be added
+     */
     private void populate(Scanner scanner,Node node){
         System.out.println("Do you want to enter the left of " + node.data);
         boolean response = scanner.nextBoolean();
