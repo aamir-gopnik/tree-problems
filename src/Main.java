@@ -20,8 +20,8 @@ public class Main {
         System.out.println();
 
         //printing depth first order traversal of binary tree
-        System.out.println("DFS - > ");
-        binaryTree.displayDFS("inorder");
+        //System.out.println("DFS - > ");
+        //binaryTree.displayDFS("inorder");
 
         /**
          * Main function used for calling BST methods

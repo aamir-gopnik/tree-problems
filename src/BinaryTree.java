@@ -26,6 +26,8 @@ public class BinaryTree {
         root.right.left = new Node(11);
         root.right.right = new Node(15);
         root.left.left.left = new Node(1);
+        root.left.left.left.right = new Node(2);
+
     }
 
     /**
@@ -159,7 +161,7 @@ public class BinaryTree {
         displayInOrder(rootNode.right);
     }
 
-    public void displayLevelOrder() {displayLevelOrder(root);}
+    public void displayLevelOrder() {displayLeftViewOfTree(root);}
     /**
      *
      * @param node Node from which tree will start
@@ -188,6 +190,45 @@ public class BinaryTree {
         }
     }
 
+    /**
+     *
+     * @param node Node from which tree will start
+     * Using Level Order traversal to print Left view of Binary Tree
+     * To achieve this we use loop to ensure that we poll all the elements of previous level
+     * and push all the elements of next level tp make the size of queue equal to the size of level
+     * in each iteration of outer while loop
+     */
+    private void displayLeftViewOfTree(Node node) {
+        if(root == null)
+        {
+            System.out.println("Illegal Argument provided");
+            return;
+        }
+        Queue<Node> nodesQueue = new LinkedList<>();
+        nodesQueue.add(node);
+        while(!nodesQueue.isEmpty())
+        {
+            int sizeOfQueue = nodesQueue.size();
+            System.out.println("sizeOfQueue -> " + sizeOfQueue);
+            for(int i=0; i<sizeOfQueue; i++)
+            {
+                Node currentNode = nodesQueue.poll();
+                if(i==0)
+                {
+                    System.out.println(currentNode.data + " ");
+                }
+                if(currentNode.left != null)
+                {
+                    nodesQueue.add(currentNode.left);
+                }
+                if(currentNode.right != null)
+                {
+                    nodesQueue.add(currentNode.right);
+                }
+            }
+        }
+    }
+
 
     /**
      *
@@ -200,7 +241,6 @@ public class BinaryTree {
             System.out.println("Illegal Argument provided");
             return;
         }
-        int height = 0;
         Queue<Node> nodesQueue = new LinkedList<>();
         nodesQueue.add(node);
         while(!nodesQueue.isEmpty())
